@@ -37,7 +37,7 @@ LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '0'))
 auth_channel = environ.get('AUTH_CHANNEL', '-1002395713472')
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1002007085025'))
 request_channel = environ.get('REQUEST_CHANNEL', '-1002232025730')
-') # If anyone sends a request message to your bot, you will get it in this channel.
+# If anyone sends a request message to your bot, you will get it in this channel.
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '0')) # 
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/Askmovieslink1') #Support group link ( make sure bot is admin )
 #---------------------------------------------------------------
