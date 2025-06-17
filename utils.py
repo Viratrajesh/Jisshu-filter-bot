@@ -38,17 +38,24 @@ def formate_file_name(file_name):
     return file_name
  
 async def is_req_subscribed(bot, query):
-    if await db.find_join_req(query.from_user.id):
+    from pyrogram.errors import UserNotParticipant, PeerIdInvalid
+    from pyrogram import enums
+    from info import AUTH_CHANNEL
+
+    user_id = query.from_user.id if hasattr(query, "from_user") else query.from_user.id
+
+    if not AUTH_CHANNEL:
         return True
+
     try:
-        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-    except UserNotParticipant:
+        user = await bot.get_chat_member(AUTH_CHANNEL, user_id)
+        if user.status in [enums.ChatMemberStatus.MEMBER, enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER]:
+            return True
+    except (UserNotParticipant, PeerIdInvalid):
         pass
     except Exception as e:
         logger.exception(e)
-    else:
-        if user.status != enums.ChatMemberStatus.BANNED:
-            return True
+
     return False
 
 async def get_poster(query, bulk=False, id=False, file=None):
