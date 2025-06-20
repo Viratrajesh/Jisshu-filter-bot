@@ -34,7 +34,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'My_Tg_files')
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '0'))  # set shortner log channel
 DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','0')) # The movie you upload in it will be deleted from the bot.
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '0'))
-auth_channel = environ.get('AUTH_CHANNEL', '-1002395713472')
+auth_channel = environ.get('AUTH_CHANNEL', '-1002712614937')
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '-1002007085025'))
 request_channel = environ.get('REQUEST_CHANNEL', '-1002232025730')
 # If anyone sends a request message to your bot, you will get it in this channel.
